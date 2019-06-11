@@ -1,4 +1,5 @@
 import WiFiConfig from './components/wifi/WiFiConfig'
+import OtherConfig from './components/other/OtherConfig'
 
 const routes = [
   /* wifi config */
@@ -16,6 +17,12 @@ const routes = [
     component: WiFiConfig,
   },
   /* end wifi config */
+  /* other config */
+  {
+    path: '/other-config',
+    component: OtherConfig,
+  },
+  /* end other config */
 ]
 
 export default routes

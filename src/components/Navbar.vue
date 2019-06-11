@@ -22,11 +22,11 @@
                     WiFi Config
                 </router-link>
 
-                <a href="#responsive-header"
-                   class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4">
+                <router-link class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4" to="/other-config">
                     <i class="fas fa-cog"></i>
                     Other Config
-                </a>
+                </router-link>
+
                 <a href="#responsive-header"
                    class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4">
                     <i class="fas fa-code-merge"></i>
