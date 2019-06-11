@@ -17,12 +17,14 @@
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="text-sm lg:flex-grow">
-                <router-link class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4" to="/wifi">
+                <router-link class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4"
+                             to="/wifi" exact-active-class="text-red-300">
                     <i class="fas fa-wifi"></i>
                     WiFi Config
                 </router-link>
 
-                <router-link class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4" to="/other-config">
+                <router-link class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4"
+                             to="/other-config" exact-active-class="text-red-300">
                     <i class="fas fa-cog"></i>
                     Other Config
                 </router-link>
@@ -55,5 +57,18 @@
 <script>
   export default {
     name: 'Navbar',
+    mounted () {
+
+    },
+    watch: {
+      $route (to, from) {
+        // console.log(to)
+        // if (to.path === '/wifi/sta') {
+        //   this.isTabToggle = false
+        // } else {
+        //   this.isTabToggle = true
+        // }
+      },
+    },
   }
 </script>
