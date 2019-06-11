@@ -37,16 +37,28 @@
     },
     data: function () {
       return {
-        isTabToggle: true,
+        isTabToggle: this.$store.state.tabs.wifi.isTabToggle,
       }
     },
     methods: {
       tabToggle: function () {
         this.isTabToggle = !this.isTabToggle
+        this.$store.dispatch('switchWiFiTabs', this.isTabToggle)
       },
     },
     mounted () {
-      this.$api.getAPConfig()
+      if (this.$route.path == '/wifi/sta') {
+        this.isTabToggle = false
+      }
+    },
+    watch: {
+      $route (to, from) {
+        if (to.path === '/wifi/sta') {
+          this.isTabToggle = false
+        } else {
+          this.isTabToggle = true
+        }
+      },
     },
   }
 </script>
