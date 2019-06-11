@@ -14,7 +14,8 @@ Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.prototype.$api = API
-console.log(CMMC_MicroGear)
+Vue.prototype.$microgear = CMMC_MicroGear
+window.microgear = CMMC_MicroGear.microgear
 
 const router = new VueRouter({ routes })
 const store = new Vuex.Store(vuexStore)
