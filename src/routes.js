@@ -2,6 +2,7 @@ import Rocket from './components/signals/Rocket'
 import Arrow from './components/signals/Arrow'
 import Pants from './components/signals/Pants'
 import Stretch from './components/signals/Stretch'
+import Countdown from './components/signals/Countdown'
 
 const routes = [
   /* signals config */
@@ -18,11 +19,13 @@ const routes = [
     path: '/arrow',
     component: Arrow,
   },
-  /* end signals config */
-  /* other config */
   {
     path: '/pants',
     component: Pants,
+  },
+  {
+    path: '/countdown',
+    component: Countdown,
   },
   /* end other config */
 ]

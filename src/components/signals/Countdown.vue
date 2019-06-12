@@ -2,7 +2,7 @@
     <div>
         <ul class="flex border-b">
             <li class="-mb-px mr-1">
-                <span>hello Countdown</span>
+                Hello Countdown
             </li>
         </ul>
     </div>
@@ -11,31 +11,16 @@
 <script>
 
   export default {
-    name: 'WiFiConfig',
+    name: 'Countdown',
     components: {},
     data: function () {
-      return {
-        isTabToggle: this.$store.state.tabs.wifi.isTabToggle,
-      }
+      return {}
     },
-    methods: {
-      tabToggle: function () {
-        this.isTabToggle = !this.isTabToggle
-        this.$store.dispatch('switchWiFiTabs', this.isTabToggle)
-      },
-    },
+    methods: {},
     mounted () {
-      if (this.$route.path == '/signals/sta') {
-        this.isTabToggle = false
-      }
     },
     watch: {
       $route (to, from) {
-        if (to.path === '/signals/sta') {
-          this.isTabToggle = false
-        } else {
-          this.isTabToggle = true
-        }
       },
     },
   }

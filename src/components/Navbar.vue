@@ -24,6 +24,7 @@
                 </router-link>
 
                 <router-link
+                        href="#stretch"
                         to="/stretch"
                         class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4"
                         exact-active-class="text-red-300">
@@ -31,24 +32,29 @@
                     Stretch
                 </router-link>
 
-                <a href="#arrow"
-                   to="/arrow"
-                   class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4">
-                    <i class="fas fa-code-merge"></i>
+                <router-link
+                        to="/arrow"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4"
+                        exact-active-class="text-red-300">
+                    <i class="fas fa-cog"></i>
                     Arrow
-                </a>
-                <a href="#pants"
-                   to="/pants"
-                   class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    Pants
-                </a>
-                <a href="#countdown"
-                   to="/count"
-                   class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4">
-                    <i class="fas fa-bed"></i>
+                </router-link>
+
+                <router-link
+                        to="/pants"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4"
+                        exact-active-class="text-red-300">
+                    <i class="fas fa-cog"></i>
+                   Pants
+                </router-link>
+
+                <router-link
+                        to="/countdown"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold hover:text-red-300 mr-4"
+                        exact-active-class="text-red-300">
+                    <i class="fas fa-cog"></i>
                     Countdown
-                </a>
+                </router-link>
             </div>
         </div>
     </nav>

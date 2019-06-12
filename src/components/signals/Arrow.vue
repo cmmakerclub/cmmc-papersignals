@@ -6,7 +6,6 @@
             </li>
         </ul>
 
-
     </div>
 </template>
 
@@ -16,28 +15,13 @@
     name: 'Arrow',
     components: {},
     data: function () {
-      return {
-        isTabToggle: this.$store.state.tabs.wifi.isTabToggle,
-      }
+      return {}
     },
-    methods: {
-      tabToggle: function () {
-        this.isTabToggle = !this.isTabToggle
-        this.$store.dispatch('switchWiFiTabs', this.isTabToggle)
-      },
-    },
+    methods: {},
     mounted () {
-      if (this.$route.path == '/signals/sta') {
-        this.isTabToggle = false
-      }
     },
     watch: {
       $route (to, from) {
-        if (to.path === '/signals/sta') {
-          this.isTabToggle = false
-        } else {
-          this.isTabToggle = true
-        }
       },
     },
   }
