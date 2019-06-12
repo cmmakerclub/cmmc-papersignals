@@ -194,8 +194,6 @@
         this.$microgear.microgear.chat('stretch/$/command', message)
         this.$microgear.microgear.chat('stretch/$/command', message)
         this.$microgear.microgear.chat('stretch/$/time', message)
-        this.$microgear.microgear.chat('pants/$/command', message)
-        this.$microgear.microgear.chat('pants/$/command', message)
         this.$microgear.microgear.chat('count/$/value', message)
         if (this.onListen) {
           this.onListen(message)

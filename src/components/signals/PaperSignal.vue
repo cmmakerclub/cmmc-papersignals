@@ -2,40 +2,37 @@
     <div>
         <div class="flex mb-1 mx-auto">
             <div class="w-full text-center">
-                <Microphone/>
+                <Microphone :on-listen="onListen"/>
             </div>
         </div>
         <div class="flex mb-4">
-            <div class="w-1/1 text-center">
-                <img src="../../assets/rocket.jpg">
+            <div class="w-1/2 text-center">
+                <img src="../../assets/logo-green.png">
             </div>
         </div>
     </div>
 </template>
 
 <script>
-
   import Microphone from './Microphone'
 
   export default {
-    name: 'Rocket',
+    name: 'PaperSignal',
     components: { Microphone },
     data: function () {
-      return {
-        text: '',
-      }
+      return {}
     },
+    props: ['on-listen', 'src'],
     methods: {
       onListen: function (message) {
-        this.text = message
-        this.$microgear.microgear.chat('rocket/$/command', message)
-        this.$microgear.microgear.chat('rocket/$/command', message)
+        console.log(`on listen = `, message)
       },
     },
     mounted () {
     },
     watch: {
-      //$route (to, from) { },
+      $route (to, from) {
+      },
     },
   }
 </script>
