@@ -2,11 +2,9 @@
     <div>
         <ul class="flex border-b">
             <li class="-mb-px mr-1">
-                <span>hello rocket</span>
+                <span>hello Countdown</span>
             </li>
         </ul>
-
-
     </div>
 </template>
 
