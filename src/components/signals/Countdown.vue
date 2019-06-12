@@ -2,7 +2,7 @@
     <div>
         <div class="flex mb-1 mx-auto">
             <div class="w-full text-center">
-                <Microphone on-listen="onListen"/>
+                <Microphone :on-listen="onListen"/>
             </div>
         </div>
         <div class="flex mb-4">
@@ -14,25 +14,28 @@
 </template>
 
 <script>
+
   import Microphone from './Microphone'
 
   export default {
     name: 'Countdown',
     components: { Microphone },
     data: function () {
-      return {}
+      return {
+        text: '',
+      }
     },
     methods: {
       onListen: function (message) {
-        this.$microgear.microgear.chat('pants/$/command', message)
-        this.$microgear.microgear.chat('pants/$/command', message)
+        this.text = message
+        this.$microgear.microgear.chat('count/$/value', message)
+        //this.$microgear.microgear.chat('count/$/value', message)
       },
     },
     mounted () {
     },
     watch: {
-      $route (to, from) {
-      },
+      //$route (to, from) { },
     },
   }
 </script>

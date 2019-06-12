@@ -2,7 +2,7 @@
     <div>
         <div class="flex mb-1 mx-auto">
             <div class="w-full text-center">
-                <Microphone/>
+                <Microphone :on-listen="onListen"/>
             </div>
         </div>
         <div class="flex mb-4">
@@ -28,8 +28,11 @@
     methods: {
       onListen: function (message) {
         this.text = message
-        this.$microgear.microgear.chat('rocket/$/command', message)
-        this.$microgear.microgear.chat('rocket/$/command', message)
+        if (this.text === 'ปล่อยยาน') {
+          this.$microgear.microgear.chat('rocket/$/command', 'ON')
+        } else if (this.text === 'ลงจอด') {
+          this.$microgear.microgear.chat('rocket/$/command', 'OFF')
+        }
       },
     },
     mounted () {

@@ -98,7 +98,9 @@
 <script>
   export default {
     name: 'Microphone',
-    props: ['on-listen'],
+    props: {
+      'on-listen': Function,
+    },
     components: {},
     data: function () {
       return {
@@ -187,14 +189,7 @@
       meTalk: function (message) {
         if (!message.trim()) return
         this.text = message
-
-        this.$microgear.microgear.chat('arrow/$/command', message)
-        this.$microgear.microgear.chat('arrow/$/command', message)
-        this.$microgear.microgear.chat('arrow/$/direction', message)
-        this.$microgear.microgear.chat('stretch/$/command', message)
-        this.$microgear.microgear.chat('stretch/$/command', message)
-        this.$microgear.microgear.chat('stretch/$/time', message)
-        this.$microgear.microgear.chat('count/$/value', message)
+        console.log(`onListen`, this.onListen)
         if (this.onListen) {
           this.onListen(message)
         }

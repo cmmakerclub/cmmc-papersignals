@@ -2,7 +2,7 @@
     <div>
         <div class="flex mb-1 mx-auto">
             <div class="w-full text-center">
-                <Microphone/>
+                <Microphone :on-listen="onListen"/>
             </div>
         </div>
         <div class="flex mb-4">
@@ -21,14 +21,25 @@
     name: 'Stretch',
     components: { Microphone },
     data: function () {
-      return {}
+      return {
+        text: '',
+      }
     },
-    methods: {},
+    methods: {
+      onListen: function (message) {
+        this.text = message
+        if (this.text === 'ยกแขนขึ้น') {
+          this.$microgear.microgear.chat('stretch/$/command', 'ON')
+        } else if (this.text === 'ยกแขนลง') {
+          this.$microgear.microgear.chat('stretch/$/command', 'OFF')
+          //this.$microgear.microgear.chat('stretch/$/time', 'OFF')
+        }
+      },
+    },
     mounted () {
     },
     watch: {
-      $route (to, from) {
-      },
+      //$route (to, from) { },
     },
   }
 </script>
