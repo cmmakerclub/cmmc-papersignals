@@ -7,34 +7,17 @@
                       style="cursor: pointer"
                       @click="tabToggle">AP</span>
             </li>
-            <li class="mr-1">
-                <span class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
-                      :class="{'border-l border-t border-r rounded-t' : !isTabToggle}"
-                      @click="tabToggle">STA</span>
-            </li>
         </ul>
 
-        <div v-if="isTabToggle">
-            <AP/>
-        </div>
-
-        <div v-if="!isTabToggle">
-            <STA/>
-        </div>
 
     </div>
 </template>
 
 <script>
-  import AP from './AP'
-  import STA from './STA'
 
   export default {
     name: 'WiFiConfig',
-    components: {
-      AP,
-      STA,
-    },
+    components: {},
     data: function () {
       return {
         isTabToggle: this.$store.state.tabs.wifi.isTabToggle,

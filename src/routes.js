@@ -1,25 +1,25 @@
-import WiFiConfig from './components/wifi/WiFiConfig'
+import WiFiConfig from './components/wifi/Rocket'
 import OtherConfig from './components/other/OtherConfig'
 
 const routes = [
   /* wifi config */
   {
     path: '/',
-    alias: '/wifi',
+    alias: '/rocket',
     component: WiFiConfig,
   },
   {
-    path: '/wifi/ap',
+    path: '/stretch',
     component: WiFiConfig,
   },
   {
-    path: '/wifi/sta',
+    path: '/arrow',
     component: WiFiConfig,
   },
   /* end wifi config */
   /* other config */
   {
-    path: '/other-config',
+    path: '/pants',
     component: OtherConfig,
   },
   /* end other config */
