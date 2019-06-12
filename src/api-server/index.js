@@ -13,7 +13,7 @@ server.connection({
 server.route(
   {
     method: ['GET', 'POST'],
-    path: '/api/wifi/ap',
+    path: '/api/signals/ap',
     handler: function (request, reply) {
       const method = request.method
       const payload = request.payload
@@ -47,7 +47,7 @@ server.route(
 server.route(
   {
     method: ['GET', 'POST'],
-    path: '/api/wifi/sta',
+    path: '/api/signals/sta',
     handler: function (request, reply) {
       let ret = [
         { result: 'failed' },
@@ -76,7 +76,7 @@ server.route(
 server.route(
   {
     method: ['GET'],
-    path: '/api/wifi/scan',
+    path: '/api/signals/scan',
     handler: function (request, reply) {
       let list = [
         [{ name: 'Nat1' }, { name: ' ...@Pinn Creative Space 1' }],

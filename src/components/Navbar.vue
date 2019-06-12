@@ -63,7 +63,7 @@
     watch: {
       $route (to, from) {
         // console.log(to)
-        // if (to.path === '/wifi/sta') {
+        // if (to.path === '/signals/sta') {
         //   this.isTabToggle = false
         // } else {
         //   this.isTabToggle = true

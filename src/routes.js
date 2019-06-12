@@ -1,26 +1,28 @@
-import WiFiConfig from './components/wifi/Rocket'
-import OtherConfig from './components/other/OtherConfig'
+import Rocket from './components/signals/Rocket'
+import Arrow from './components/signals/Arrow'
+import Pants from './components/signals/Pants'
+import Stretch from './components/signals/Stretch'
 
 const routes = [
-  /* wifi config */
+  /* signals config */
   {
     path: '/',
     alias: '/rocket',
-    component: WiFiConfig,
+    component: Rocket,
   },
   {
     path: '/stretch',
-    component: WiFiConfig,
+    component: Stretch,
   },
   {
     path: '/arrow',
-    component: WiFiConfig,
+    component: Arrow,
   },
-  /* end wifi config */
+  /* end signals config */
   /* other config */
   {
     path: '/pants',
-    component: OtherConfig,
+    component: Pants,
   },
   /* end other config */
 ]

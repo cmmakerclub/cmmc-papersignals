@@ -2,7 +2,7 @@ import axios from 'axios'
 
 let url = {
   wifi: {
-    ap: '/api/wifi/ap',
+    ap: '/api/signals/ap',
   },
 }
 
