@@ -97,7 +97,7 @@
 
 <script>
   export default {
-    name: 'Arrow',
+    name: 'Microphone',
     components: {},
     data: function () {
       return {
@@ -167,6 +167,8 @@
         if (this.isListening) return
         let self = this
         self.isListening = true
+        self.text = 'กำลังฟัง'
+
         this.recognition.obj = new this.recognition.SpeechRecognition()
         for (let k in this.recognition.config) {
           this.recognition.obj[k] = this.recognition.config[k]
@@ -184,7 +186,19 @@
       meTalk: function (message) {
         if (!message.trim()) return
         this.text = message
-        this.$microgear.microgear.chat('arrow', message)
+
+        this.$microgear.microgear.chat('rocket/$/command', message)
+        this.$microgear.microgear.chat('rocket/$/command', message)
+        this.$microgear.microgear.chat('arrow/$/command', message)
+        this.$microgear.microgear.chat('arrow/$/command', message)
+        this.$microgear.microgear.chat('arrow/$/direction', message)
+        this.$microgear.microgear.chat('stretch/$/command', message)
+        this.$microgear.microgear.chat('stretch/$/command', message)
+        this.$microgear.microgear.chat('stretch/$/time', message)
+        this.$microgear.microgear.chat('pants/$/command', message)
+        this.$microgear.microgear.chat('pants/$/command', message)
+        this.$microgear.microgear.chat('count/$/value', message)
+
         //let self = this
         //let msg = this.createMessage('me', message)
         //self.messages.push(msg)
