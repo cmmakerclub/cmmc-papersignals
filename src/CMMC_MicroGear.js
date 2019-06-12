@@ -19,6 +19,7 @@ microgear.on('connected', () => {
   state.msg = 'connected.'
   microgear.setAlias('hello-vue1')
   console.log(`subscribed.`)
+
   let name = 'VueJS'
   microgear.subscribe('/#')
   microgear.publish('/gearname/chat', 'I\'m new#' + name)
@@ -66,7 +67,7 @@ CMMC_MicroGear = {
   },
 }
 
-microgear.useTLS(false)
+microgear.useTLS(true)
 microgear.connect('papersignal')
 console.log(`microgear=`, microgear)
 

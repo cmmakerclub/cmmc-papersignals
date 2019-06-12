@@ -1,19 +1,18 @@
 <template>
     <div>
         <ul class="flex border-b">
-            <li class="-mb-px mr-1">
-                Hello Pants
-            </li>
+            <Microphone/>
         </ul>
 
     </div>
 </template>
 
 <script>
+  import Microphone from './Microphone'
 
   export default {
     name: 'Pants',
-    components: {},
+    components: { Microphone },
     data: function () {
       return {}
     },

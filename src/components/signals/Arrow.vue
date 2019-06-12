@@ -1,125 +1,22 @@
 <template>
     <div>
         <ul class="flex border-b">
-            <li class="-mb-px mr-1">
-                {{ text }}
-                <div class="microphone" v-if="recognition.support" :class="{'is-listening': isListening }" @click="startListenVoiceCommands">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12 16c2.206 0 4-1.795 4-4v-6c0-2.206-1.794-4-4-4s-4 1.794-4 4v6c0 2.205 1.794 4 4 4z"></path>
-                        <path d="M19 12v-2c0-0.552-0.447-1-1-1s-1 0.448-1 1v2c0 2.757-2.243 5-5 5s-5-2.243-5-5v-2c0-0.552-0.447-1-1-1s-1 0.448-1 1v2c0 3.52 2.613 6.432 6 6.92v1.080h-3c-0.553 0-1 0.447-1 1s0.447 1 1 1h8c0.553 0 1-0.447 1-1s-0.447-1-1-1h-3v-1.080c3.387-0.488 6-3.4 6-6.92z"></path>
-                    </svg>
-                </div>
-                <img src="../../assets/arrow.jpg">
-            </li>
+            <Microphone/>
         </ul>
-
     </div>
 </template>
 
 <script>
+  import Arrow from './Arrow'
+  import Microphone from './Microphone'
+
   export default {
-    name: 'Arrow',
-    components: {},
+    name: 'Countdown',
+    components: { Microphone },
     data: function () {
-      return {
-        text: 'hello',
-        recognition: {
-          support: false,
-          obj: null,
-          config: {
-            lang: 'th-TH',
-            interimResults: false,
-            maxAlternatives: true,
-          },
-        },
-        loading: false,
-        isListening: false,
-        messages: [],
-      }
+      return {}
     },
-    created: function () {
-      let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || undefined
-      if (SpeechRecognition) {
-        this.recognition.support = true
-        this.recognition.SpeechRecognition = SpeechRecognition
-      }
-    },
-    methods: {
-      speak: function (msg) {
-        if (!this.synthesis.support) return
-        let self = this
-        let langKey = this.checkThaiLanguage(msg.content) ? 'th' : 'en'
-        let config = this.synthesis.config[langKey]
-
-        self.synthesis.message = msg.content
-
-        self.$refs.speakEvent.onclick = function (e) {
-          if (!self.isMobile) {
-            self.synthesis._init = true
-          }
-          if (e !== 'force') {
-            if (self.synthesis._init) {
-              return
-            } else {
-              self.synthesis._init = true
-            }
-          }
-          // if (self.synthesis.lastMsg.id === msg.id) {
-          //   self.synthesis.message = ''
-          // }
-          self.synthesis.obj = new SpeechSynthesisUtterance()
-          for (let k in config) {
-            self.synthesis.obj[k] = config[k]
-          }
-          self.synthesis.obj.voice = langKey === 'th' ? self.getThaiVoice() : self.getEngVoice()
-          self.synthesis.obj.text = self.synthesis.message
-          setTimeout(function () {
-            speechSynthesis.speak(self.synthesis.obj)
-            self.synthesis.lastMsg = msg
-          }, 200)
-        }
-        self.$refs.speakEvent.onclick('force')
-      },
-      getThaiVoice: function () {
-        return this.filterVoice(v => v.lang === 'th-TH')
-          || this.filterVoice(v => v.lang.indexOf('th') >= 0)
-      },
-      startListenVoiceCommands: function () {
-        if (this.isListening) return
-        let self = this
-        self.isListening = true
-        this.recognition.obj = new this.recognition.SpeechRecognition()
-        for (let k in this.recognition.config) {
-          this.recognition.obj[k] = this.recognition.config[k]
-        }
-        self.recognition.obj.start()
-        self.recognition.obj.onresult = function (event) {
-          let result = event.results[0][0].transcript
-          self.meTalk(result)
-        }
-        self.recognition.obj.onend = function () {
-          self.isListening = false
-          self.recognition.obj.stop()
-        }
-      },
-      meTalk: function (message) {
-        if (!message.trim()) return
-        this.text = message
-        this.$microgear.microgear.chat('arrow', message)
-        //let self = this
-        //let msg = this.createMessage('me', message)
-        //self.messages.push(msg)
-        //self.resetForm()
-        //self.onCompleteTalk()
-        //setTimeout(function () {
-        //  self.themTalk(message)
-        //}, Math.random() * 500 + 500)
-      },
-
-      checkThaiLanguage (message) {
-        return /[\u0E01-\u0E5B]/.test(message)
-      },
-    },
+    methods: {},
     mounted () {
     },
     watch: {

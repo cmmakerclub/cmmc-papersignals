@@ -1,9 +1,7 @@
 <template>
     <div>
         <ul class="flex border-b">
-            <li class="-mb-px mr-1">
-                Hello Rocket
-            </li>
+            <Microphone/>
         </ul>
 
     </div>
@@ -11,9 +9,11 @@
 
 <script>
 
+  import Microphone from './Microphone'
+
   export default {
     name: 'Rocket',
-    components: {},
+    components: { Microphone },
     data: function () {
       return {}
     },
