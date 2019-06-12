@@ -98,6 +98,7 @@
 <script>
   export default {
     name: 'Microphone',
+    props: ['on-listen'],
     components: {},
     data: function () {
       return {
@@ -187,8 +188,6 @@
         if (!message.trim()) return
         this.text = message
 
-        this.$microgear.microgear.chat('rocket/$/command', message)
-        this.$microgear.microgear.chat('rocket/$/command', message)
         this.$microgear.microgear.chat('arrow/$/command', message)
         this.$microgear.microgear.chat('arrow/$/command', message)
         this.$microgear.microgear.chat('arrow/$/direction', message)
@@ -198,7 +197,9 @@
         this.$microgear.microgear.chat('pants/$/command', message)
         this.$microgear.microgear.chat('pants/$/command', message)
         this.$microgear.microgear.chat('count/$/value', message)
-
+        if (this.onListen) {
+          this.onListen(message)
+        }
         //let self = this
         //let msg = this.createMessage('me', message)
         //self.messages.push(msg)
