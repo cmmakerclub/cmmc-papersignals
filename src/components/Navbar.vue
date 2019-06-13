@@ -1,5 +1,5 @@
 <template>
-    <nav class="hidden flex items-center justify-between flex-wrap bg-indigo-500 p-6">
+    <nav class="flex items-center justify-between flex-wrap bg-indigo-500 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
             <img src="../assets/logo-green.png" style="width: 60px">
             <span style="width: 4px"></span>

@@ -3,8 +3,8 @@ let CMMC_MicroGear = {}
 
 let state = { msg: 'not connected.' }
 let microgear = window.Microgear.create({
-  key: 'LoJF2BTyh9acUnd',
-  secret: 'mDqWi9zJ34V60wFXxVXx7sbN7',
+  key: 'neK2J5EChqmuCtl',
+  secret: '9ZZlQV8kBPYPoCBoJ84L6IrAp',
   alias: 'vueapp',
 })
 
@@ -68,7 +68,7 @@ CMMC_MicroGear = {
 }
 
 microgear.useTLS(true)
-microgear.connect('papersignal')
+microgear.connect('CMMCxPaperSignals')
 console.log(`microgear=`, microgear)
 
 export default CMMC_MicroGear

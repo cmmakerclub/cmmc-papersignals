@@ -12,19 +12,25 @@ const routes = [
     component: Rocket,
   },
   {
-    path: '/stretch',
+    path: '/rocket/:id?',
+    alias: '/rocket',
+    component: Rocket,
+  },
+  {
+    path: '/stretch/:id?',
+    alias: '/stretch',
     component: Stretch,
   },
   {
-    path: '/arrow',
+    path: '/arrow/:id?',
     component: Arrow,
   },
   {
-    path: '/pants',
+    path: '/pants/:id?',
     component: Pants,
   },
   {
-    path: '/countdown',
+    path: '/countdown/:id?',
     component: Countdown,
   },
   /* end other config */
