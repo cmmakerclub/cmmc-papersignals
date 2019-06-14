@@ -2,7 +2,8 @@
     <div>
         <ul class="flex border-b">
             <li class="-mb-px mr-1">
-                {{ text }}
+                <div v-if="recognition.support">{{ text }}</div>
+                <div v-if="!recognition.support">เครื่องของคุณไม่รองรับการสั่งงานด้วยเสียง</div>
                 <div class="microphone" v-if="recognition.support" :class="{'is-listening': isListening }" @click="startListenVoiceCommands">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12 16c2.206 0 4-1.795 4-4v-6c0-2.206-1.794-4-4-4s-4 1.794-4 4v6c0 2.205 1.794 4 4 4z"></path>
