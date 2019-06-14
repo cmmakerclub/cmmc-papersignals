@@ -4,13 +4,26 @@
             <li class="-mb-px mr-1">
                 <div v-if="recognition.support">{{ text }}</div>
                 <div v-if="!recognition.support">เครื่องของคุณไม่รองรับการสั่งงานด้วยเสียง</div>
-                <div class="microphone" v-if="recognition.support" :class="{'is-listening': isListening }" @click="startListenVoiceCommands">
+                <div class="microphone" v-if="recognition.support" :class="{'is-listening': isListening }"
+                     @click="startListenVoiceCommands">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12 16c2.206 0 4-1.795 4-4v-6c0-2.206-1.794-4-4-4s-4 1.794-4 4v6c0 2.205 1.794 4 4 4z"></path>
                         <path d="M19 12v-2c0-0.552-0.447-1-1-1s-1 0.448-1 1v2c0 2.757-2.243 5-5 5s-5-2.243-5-5v-2c0-0.552-0.447-1-1-1s-1 0.448-1 1v2c0 3.52 2.613 6.432 6 6.92v1.080h-3c-0.553 0-1 0.447-1 1s0.447 1 1 1h8c0.553 0 1-0.447 1-1s-0.447-1-1-1h-3v-1.080c3.387-0.488 6-3.4 6-6.92z"></path>
                     </svg>
                 </div>
                 <!--                <img src="../../assets/arrow.jpg">-->
+                <div v-if="!recognition.support" class="pt-4 pb-4">
+                    <div class="flex">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 w-full"
+                                @click="START()">
+                            START
+                        </button>
+                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
+                                @click="STOP()">
+                            STOP
+                        </button>
+                    </div>
+                </div>
             </li>
         </ul>
 
@@ -101,6 +114,7 @@
     name: 'Microphone',
     props: {
       'on-listen': Function,
+      'command': {},
     },
     components: {},
     data: function () {
@@ -128,6 +142,14 @@
       }
     },
     methods: {
+      START: function () {
+        // console.log('start');
+        this.$microgear.microgear.chat(this.command.topic, this.command.start)
+      },
+      STOP: function () {
+        // console.log('stop');
+        this.$microgear.microgear.chat(this.command.topic, this.command.stop)
+      },
       speak: function (msg) {
         if (!this.synthesis.support) return
         let self = this
